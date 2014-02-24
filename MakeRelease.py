@@ -8,7 +8,7 @@ textExts = ['.txt', '.ahk', '.py']
 excludeExts = ['.swp']
 
 Ahk2ExePath = r'C:\Program Files (x86)\AutoHotkey\Compiler\Ahk2Exe.exe'
-MakeNSISPath = r"C:\Program Files (x86)\NSIS\makensis.exe"
+MakeNSISPath = r"C:\Program Files\NSIS\makensis.exe"
 
 def mktree(dirPath):
     toks = list(os.path.split(dirPath))

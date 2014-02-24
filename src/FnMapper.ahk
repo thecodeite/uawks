@@ -52,7 +52,7 @@ InputMsg(wParam, lParam, msg, hwnd)
   if (errorlevel <> 0) || (nRC == 0xFFFFFFFF) 
   {
   	MsgBox GetWM_INPUTHIDData fehlgeschlagen. Errorcode: %errorlevel%
-  	goto cleanup
+  	CleanUp()
   }
   ;Tooltip, %DeviceNr%
   ifequal, nRC, 2
@@ -119,7 +119,8 @@ ProcessHIDData(wParam, lParam)
 } ; END: ProcessHIDData
 
 ; If there was an error retrieving the HID data, cleanup
-cleanup:
+Cleanup()
+{
 	DllCall("FreeLibrary", "UInt", hModule)
 	ExitApp
 
@@ -132,5 +133,5 @@ ejectDrive:
 	if A_TickCount - startTime < EjectDelayTime ; Adjust this time if needed.
 	    Drive, Eject,, 1
 	Return
-Return
+}
 
